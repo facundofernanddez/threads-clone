@@ -14,7 +14,7 @@ const userSchema = new mongoose.Schema({
     },
   ],
   onboarder: {
-    type: boolean,
+    type: Boolean,
     default: false,
   },
   communities: [
