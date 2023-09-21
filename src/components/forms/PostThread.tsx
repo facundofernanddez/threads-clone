@@ -2,7 +2,7 @@
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { userValidation } from "@/lib/validations/user";
+import { threadValidation } from "@/lib/validations/thread";
 import {
   Form,
   FormControl,
@@ -36,19 +36,52 @@ interface AccountProfileProps {
 }
 
 export default function PostThread({ userId }: { userId: string }) {
-  const [files, setFiles] = useState<File[]>([]);
-  const { startUpload } = useUploadThing("media");
   const router = useRouter();
   const pathname = usePathname();
 
   const form = useForm({
-    resolver: zodResolver(userValidation),
+    resolver: zodResolver(threadValidation),
     defaultValues: {
-      profile_photo: user?.image || "",
-      name: user?.name || "",
-      username: user?.username || "",
-      bio: user?.bio || "",
+      thread: "",
+      accountId: userId,
     },
   });
-  return <h1>Post thread</h1>;
+
+  const onSubmit = () => {};
+
+  return (
+    <Form {...form}>
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="mt-10 flex flex-col justify-start gap-10"
+      >
+        <FormField
+          control={form.control}
+          name="thread"
+          render={({ field }) => (
+            <FormItem className="flex flex-col gap-3 w-full">
+              <FormLabel className="text-base-semibold text-light-2">
+                Content
+              </FormLabel>
+              <FormControl className="no-focus border border-dark-4 bg-dark-3 text-light-1">
+                <Textarea
+                  rows={15}
+                  className="account-form_input no-focus"
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <Button
+          type="submit"
+          className="bg-primary-500"
+        >
+          Post Thread
+        </Button>
+      </form>
+    </Form>
+  );
 }
