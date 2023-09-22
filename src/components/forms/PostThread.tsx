@@ -15,7 +15,7 @@ import { Textarea } from "@/components/ui/textarea";
 import * as z from "zod";
 import { Button } from "../ui/button";
 import { usePathname, useRouter } from "next/navigation";
-import createThread from "@/lib/actions/thread.actions";
+import { createThread } from "@/lib/actions/thread.actions";
 
 export default function PostThread({ userId }: { userId: string }) {
   const router = useRouter();
