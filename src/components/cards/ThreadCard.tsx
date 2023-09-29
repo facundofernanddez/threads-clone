@@ -74,23 +74,25 @@ export default function ThreadCard({
                   height={24}
                   className="cursor-pointer object-contain"
                 />
+                <Link href={`/thread/${id}`}>
+                  <Image
+                    src={"/assets/replay.svg"}
+                    alt="replay"
+                    width={24}
+                    height={24}
+                    className="cursor-pointer object-contain"
+                  />
+                </Link>
                 <Image
-                  src={"/assets/heart-gray.svg"}
-                  alt="heart"
+                  src={"/assets/repost.svg"}
+                  alt="repost"
                   width={24}
                   height={24}
                   className="cursor-pointer object-contain"
                 />
                 <Image
-                  src={"/assets/heart-gray.svg"}
-                  alt="heart"
-                  width={24}
-                  height={24}
-                  className="cursor-pointer object-contain"
-                />
-                <Image
-                  src={"/assets/heart-gray.svg"}
-                  alt="heart"
+                  src={"/assets/share.svg"}
+                  alt="share"
                   width={24}
                   height={24}
                   className="cursor-pointer object-contain"
