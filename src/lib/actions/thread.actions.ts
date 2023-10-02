@@ -109,6 +109,23 @@ export async function addCommentToThread(
   connectToDB();
 
   try {
+    const originalThread = await Thread.findById(threadId);
+
+    if (!originalThread) throw new Error("Couldn't find thread");
+
+    const commentThread = new Thread({
+      text: commentText,
+      author: userId,
+      parentId: threadId,
+    });
+
+    const savedCommentThread = await commentThread.save();
+
+    originalThread.children.push(savedCommentThread._id);
+
+    await originalThread.save();
+
+    revalidatePath(path);
   } catch (error: any) {
     throw new Error(`Error adding comment to thread: ${error.message}`);
   }

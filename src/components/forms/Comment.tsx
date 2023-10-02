@@ -16,6 +16,7 @@ import * as z from "zod";
 import { Button } from "../ui/button";
 import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
+import { addCommentToThread } from "@/lib/actions/thread.actions";
 // import { createThread } from "@/lib/actions/thread.actions";
 
 interface CommentProps {
@@ -40,15 +41,16 @@ export default function Comment({
   });
 
   const onSubmit = async (values: z.infer<typeof commentValidation>) => {
-    // await createThread({
-    //   text: values.thread,
-    //   author: userId,
-    //   communityId: null,
-    //   path: pathname,
-    // });
+    await addCommentToThread(
+      threadId,
+      values.thread,
+      JSON.parse(currentUserId),
+      pathname
+    );
 
-    router.push("/");
+    form.reset();
   };
+
   return (
     <Form {...form}>
       <form
