@@ -77,7 +77,7 @@ export default function ThreadCard({
                 />
                 <Link href={`/thread/${id}`}>
                   <Image
-                    src={"/assets/replay.svg"}
+                    src={"/assets/reply.svg"}
                     alt="replay"
                     width={24}
                     height={24}
