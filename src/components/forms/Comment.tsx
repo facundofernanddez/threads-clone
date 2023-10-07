@@ -87,7 +87,7 @@ export default function Comment({
           type="submit"
           className="comment-form_btn"
         >
-          Replay
+          Reply
         </Button>
       </form>
     </Form>
