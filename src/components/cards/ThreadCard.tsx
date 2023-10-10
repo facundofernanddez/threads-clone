@@ -34,7 +34,6 @@ export default function ThreadCard({
   comments,
   isComment,
 }: ThreadCardProps) {
-  console.log(isComment);
   return (
     <article
       className={`flex w-full flex-col rounded-xl ${
