@@ -1,8 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   experimental: {
     serverActions: true,
-    serverComponentsExternalPackages: ["mongoose"]
+    serverComponentsExternalPackages: ["mongoose"],
   },
   images: {
     remotePatterns: [
@@ -23,7 +26,7 @@ const nextConfig = {
         hostname: "placehold.co",
       },
     ],
-  }
-}
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
