@@ -11,7 +11,7 @@ export default async function ActivityPage() {
 
   const userInfo = await fetchUser(user.id);
 
-  if (!userInfo?.onboarder) return redirect("/onboarding");
+  if (!userInfo?.onboarded) return redirect("/onboarding");
 
   const activity = await getActivity(userInfo._id);
 

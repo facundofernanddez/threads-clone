@@ -35,7 +35,7 @@ export const updateUser = async ({
         name,
         bio,
         image,
-        onboarder: true,
+        onboarded: true,
       },
       { upsert: true }
     );

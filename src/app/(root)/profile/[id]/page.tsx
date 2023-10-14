@@ -18,7 +18,7 @@ export default async function ProfilePage({
 
   const userInfo = await fetchUser(params.id);
 
-  if (!userInfo?.onboarder) return redirect("/onboarding");
+  if (!userInfo?.onboarded) return redirect("/onboarding");
 
   return (
     <section>

@@ -10,7 +10,7 @@ export default async function SearchPage() {
 
   const userInfo = await fetchUser(user.id);
 
-  if (!userInfo?.onboarder) return redirect("/onboarding");
+  if (!userInfo?.onboarded) return redirect("/onboarding");
 
   const result = await fetchUsers({
     userId: user.id,
@@ -21,6 +21,8 @@ export default async function SearchPage() {
   return (
     <section>
       <h1 className="head-text mb-10">Search</h1>
+
+      <Searchbar routeType="search" />
 
       <div className="mt-14 flex flex-col gap-9">
         {result.users.length === 0 ? (
